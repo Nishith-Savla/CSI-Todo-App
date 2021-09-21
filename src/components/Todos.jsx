@@ -17,7 +17,9 @@ const Todos = () => {
 			todosCollection,
 			querySnapshot => {
 				const docs = [];
-				querySnapshot.forEach(doc => docs.push({ ...doc.data(), id: doc.id }));
+				querySnapshot.forEach(doc =>
+					docs.push({ ...doc.data(), id: doc.id })
+				);
 				setTodos(docs);
 			},
 			error => console.error(error)
@@ -30,7 +32,7 @@ const Todos = () => {
 		await addDoc(collection(db, "todos"), { completed: false, text: "" });
 
 	return (
-		<div>
+		<div className="todos">
 			<ul>
 				{todos.map(({ id, completed, text }) => (
 					<li key={id}>
