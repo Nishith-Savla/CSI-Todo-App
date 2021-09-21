@@ -20,7 +20,7 @@ const TodoItem = ({ id, completed, text }) => {
 		timeout = setTimeout(async () => {
 			if (text !== value)
 				await setDoc(doc(db, "todos", id), { completed, text: value });
-		}, 800);
+		}, 700);
 	};
 	const handleDelete = async e => await deleteDoc(doc(db, "todos", id));
 
